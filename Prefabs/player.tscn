@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://57ysax1d7ju8"]
+
+[ext_resource type="Texture2D" uid="uid://cyhaun5j0tt6y" path="res://Sprites/PlayerTEMP.png" id="1_3s7ol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7e5l"]
+size = Vector2(32, 32)
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="PlayerTemp" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_3s7ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_m7e5l")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
