@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://57ysax1d7ju8"]
+[gd_scene load_steps=4 format=3 uid="uid://57ysax1d7ju8"]
 
 [ext_resource type="Texture2D" uid="uid://cyhaun5j0tt6y" path="res://Sprites/PlayerTEMP.png" id="1_3s7ol"]
+[ext_resource type="Script" path="res://Scripts/Integration/PlayerAuthoring.cs" id="1_xr1qd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7e5l"]
 size = Vector2(32, 32)
@@ -8,6 +9,7 @@ size = Vector2(32, 32)
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_xr1qd")
 
 [node name="PlayerTemp" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("1_3s7ol")
@@ -16,3 +18,7 @@ texture = ExtResource("1_3s7ol")
 shape = SubResource("RectangleShape2D_m7e5l")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]

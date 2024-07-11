@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cycjauwtabqet"]
+
+[ext_resource type="PackedScene" uid="uid://57ysax1d7ju8" path="res://Prefabs/player.tscn" id="1_msgi6"]
+[ext_resource type="Texture2D" uid="uid://cyhaun5j0tt6y" path="res://Sprites/PlayerTEMP.png" id="2_w21mq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_msgi6")]
+
+[node name="PlayerTemp" type="Sprite2D" parent="."]
+position = Vector2(-147, -75)
+texture = ExtResource("2_w21mq")
+
+[node name="PlayerTemp2" type="Sprite2D" parent="."]
+position = Vector2(160, -15)
+texture = ExtResource("2_w21mq")
+
+[node name="PlayerTemp3" type="Sprite2D" parent="."]
+position = Vector2(-165, 149)
+texture = ExtResource("2_w21mq")
