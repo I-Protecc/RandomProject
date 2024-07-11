@@ -5,7 +5,7 @@ namespace RpgProject.Scripts.Integration;
 public partial class PlayerAuthoring : CharacterBody2D
 {
 	[Export]
-	public int Speed { get; set; } = 400;
+	public float Speed { get; set; } = 1;
 
 
 	private CharacterBody2D _characterBody2D;
@@ -29,7 +29,6 @@ public partial class PlayerAuthoring : CharacterBody2D
 	public void _physics_process(double delta)
 	{
 		Movement();
-		//if(Input.IsActionPressed("MovementKeys")) { }
 	}
 
 
@@ -37,6 +36,7 @@ public partial class PlayerAuthoring : CharacterBody2D
 	
 	private void Movement()
 	{
+		Vector2 currentPosition = new Vector2(_playerNode2D.GlobalPosition.X, _playerNode2D.GlobalPosition.Y);
 		Vector2 targetPosition = new Vector2(_playerNode2D.GlobalPosition.X, _playerNode2D.GlobalPosition.Y);
 		
 		if(Input.IsActionJustReleased("left"))
@@ -59,5 +59,15 @@ public partial class PlayerAuthoring : CharacterBody2D
 			targetPosition.Y += 1;
 			GD.Print("Down");
 		}
+
+		if (targetPosition != currentPosition)
+		{
+			Vector2 direction = currentPosition.DirectionTo(targetPosition);
+
+			Velocity = direction * Speed; 
+			
+			MoveAndSlide();
+		}
+		
 	}
 }
